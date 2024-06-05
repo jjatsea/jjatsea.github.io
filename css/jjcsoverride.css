@@ -4218,7 +4218,7 @@ div.formField.password label {
 }
  #asFooter div.images{
      display; none;
-     text-align:center;
+     text-align:center; !important
 }
  #asCustFooter{
 }
