@@ -6,10 +6,62 @@
 
 @font-face {
     font-family: 'Avenir';
-    src: url('https://global.divhunt.com/4f075ba189eda08b6ef88a3e9242231f_195524.otf') format('opentype');
+    src: url('https://global.divhunt.com/b1abb878e2529cb5cb4450139844155d_27912.otf') format('opentype');
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('https://global.divhunt.com/b1d7c6e085a31e9f5e4745c9aef6eb4b_27176.otf') format('opentype');
     font-style: normal;
     font-weight: 400;
     font-display: swap;
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('https://global.divhunt.com/ecb0c2ae369ba2a89d9a1ec2a1b3187b_27444.otf') format('opentype');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('https://global.divhunt.com/969df74ccb5d459886c5f2e01ca5a40b_46112.woff') format('woff');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('https://global.divhunt.com/9aef078fc98c67ed18dac59af49b038c_41284.woff') format('woff');
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('https://global.divhunt.com/efae24f155a6264f95506876e0b78b87_63792.woff') format('woff');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+main {
+    --Yellow: rgb(255,208,80);
+    --Purple: rgba(89,46,169,1.00);
+    --White: White;
+    --Text: rgba(35,37,54,1.00);
+    --Text-Light: rgba(109,110,118,1.00);
+    --Brand-Primary: #001b79;
+    --Brand-Secondary: #1640d6;
+    --Brand-Tertiary: #ed5ab3;
+    --Brand-Accent: #ff90c2;
 }
 
  body,form,img,div,h1,h2,h3,h4,h5 {
@@ -222,20 +274,19 @@
 /*------------Other Commom Classes ---------------*/
 /* Button classes */
  button{
-     color: #000;
-     background-color: rgba(255,208,80,1.00);
-     font-size:14px;
-     font-weight: 500;
-     text-transform:uppercase;
-     padding: 10px 30px;
-     /*! border-radius:4px; */
-     letter-spacing: 2px;
-     border: 0px;
-     cursor:pointer;
-     border-radius: 0px !important;
+    color: var(--Brand-Primary);
+    padding: 5px 20px 5px 20px;
+    font-size: 14px;
+    background: var(--Brand-Accent);
+    font-family: 'Avenir';
+    font-weight: 700;
+    -webkit-background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,0);
 }
+
  button:hover{
-     background-color:#0d224c;
+    background: var(--Brand-Secondary);
+    color: var(--Brand-Accent);
 }
  button.pending{
      background-color:black;
@@ -915,10 +966,12 @@
      width:100%;
 }
  .crShipImage span.stars{
+     display: none;
      color:#ff690c;
      font-size: 20px;
 }
  .crShipImage img.maglass{
+     display: none;
      cursor:pointer;
      margin-left:4px;
      vertical-align:-3px;
@@ -949,26 +1002,25 @@
      vertical-align:middle;
 }
  h3.crLengthDestination{
-     font-size: 18px;
+     font-size: 16px;
      font-weight: 600;
      margin-bottom: 0px;
 }
  div.crVendorCruise{
-    font-size: 16px;
-     font-weight: 600;
-     margin-bottom:20px;
+    font-size: 12px;
+    font-weight: 600;
 }
  div.crVendorCruise span{
      color:#0c214d;
 }
 div.crPortList {
-    font-size: 14px;
+    font-size: 12px;
 }
  .crSailingDates {
-     color: #4e4e4e;
-     font-size: 18px;
-     font-weight: 300;
-     margin-top: 20px;
+     /* color: #4e4e4e; */
+     /* font-size: 13px; */
+     /* font-weight: 300; */
+     /* margin-top: 5px; */
 }
  .crSailingDates span {
      font-weight: 600;
@@ -979,22 +1031,25 @@ div.crPortList {
      background-color:#f0f0f0;
      margin-bottom: 15px;
      /*! border-radius: 5px; */
+     display: flex;
+     align-items: center;
 }
  div.crPrices>div.label{
-    font-size: 13px;
-    text-align: center;
-     margin-bottom: 10px;
+    font-size: 12px;
+    text-align: left;
+    margin-bottom: 10px;
+    min-width: fit-content;
 }
  div.crPrices div.cabinType{
      width:23.5%;
      display:inline-block;
      font-size:.875em;
-     text-align:center;
+     text-align: center;
 }
  div.crPrices div.cabinType div.label{
     color: #4e4e4e;
-    font-size: 15px;
-     font-weight: 600;
+    font-size: 12px;
+    font-weight: 600;
 }
  div.crPrices div.price{
      color:#224273;
@@ -1036,15 +1091,15 @@ div.crPortList {
      overflow:hidden;
 }
  .crListingIcons a:not(.crListingViewDetails), .crListingIcons>div{
-     display:inline-block;
-     max-width:30%;
-     padding:8px 16px;
-     color:black;
-     background-color:#eeeeee;
-     border-radius: 4px;
-     text-transform:uppercase;
-     text-align:center;
-     text-decoration:none;
+     /* display:inline-block; */
+     /* max-width:30%; */
+     /* padding:8px 16px; */
+     /* color:black; */
+     /* background-color:#eeeeee; */
+     /* border-radius: 4px; */
+     /* text-transform:uppercase; */
+     /* text-align:center; */
+     /* text-decoration:none; */
 }
  .crListingIcons div.catUpgrade{
      max-width:none;
@@ -1056,7 +1111,9 @@ div.crPortList {
 }
  .crListingIcons a.special{
      color:#cc0000;
-     background-color:#ffcc33;
+     background-color: transparent;
+     border: 0px;
+     margin-top: 10px;
 }
  .crListingIcons a.gratuities{
      color:white;
@@ -1064,7 +1121,6 @@ div.crPortList {
 }
  a.crListingViewDetails, .crCruiseListing .zzSelectButton{
      float:right;
-
 }
 /* Cruise Results Footer Classes*/
  #crFooter{
@@ -6705,7 +6761,7 @@ div.formField.password label {
         font-size: 22px;
     }
     .crSailingDates {
-        font-size: 16px;
+        font-size: 12px;
     }
      #crMainBody, #crFooter{
         max-width:none;
@@ -6747,7 +6803,7 @@ div.formField.password label {
     }
     }
      div.crPrices div.price{
-         font-size:1.25em;
+         font-size: 1.1em;
     }
      #cdItinInfo {
     }
