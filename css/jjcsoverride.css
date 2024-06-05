@@ -1073,7 +1073,7 @@ div.crPortList {
      margin-left:22px;
 }
  div.crBonusOffers h4{
-     color:#ff690c;
+     color: var(--Brand-Primary);
      font-weight:bold;
      font-size:1.17em;
      text-transform:uppercase;
