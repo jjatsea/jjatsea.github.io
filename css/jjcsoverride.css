@@ -842,7 +842,7 @@ div.caCategoryListing>h2{
 
 /*Loading Screen*/
 div.zzInterstitialOverlay {
-    width: 96%;
+    width: auto;
 }
 
 div.zzInterstitialOverlay.default div.row1 {
