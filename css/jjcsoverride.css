@@ -839,3 +839,12 @@ div.zzBookingSummary h2{
 div.caCategoryListing>h2{
     background-color: #001b79;
 }
+
+/*Loading Screen*/
+div.zzInterstitialOverlay {
+    width: 96%;
+}
+
+div.zzInterstitialOverlay.default div.row1 {
+    display: inline-flex;
+}
