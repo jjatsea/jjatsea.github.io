@@ -919,3 +919,13 @@ div.zzInterstitialOverlay.default div.spinner {
     top: unset;
     left: unset;
 }
+
+/* Special Offers Popup */
+
+div.zzSpecialOffer h1 {
+    color: #001b79;
+}
+
+div.zzSpecialOffer h4 {
+    color: #001b79;
+}
