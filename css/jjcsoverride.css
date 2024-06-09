@@ -689,6 +689,12 @@ div.cdResidencyGroup select {width: 90%; margin-left: auto;}
 
 /* Responseive */
 
+@media only screen and (max-width: 767px) {
+    #crTopDiv .zzPageTitle {
+        color: white;
+    }
+}
+
 @media only screen and (max-width: 1023px) {
     .lfTopDiv {
         margin: 0 2px;
