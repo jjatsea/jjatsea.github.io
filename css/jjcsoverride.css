@@ -65,8 +65,8 @@ main {
 }
 
  body,form,img,div,h1,h2,h3,h4,h5 {
-     margin:0;
-     border:none;
+     /* margin:0; */
+     /* border:none; */
      width: 100;
 }
  main{
@@ -841,10 +841,75 @@ div.caCategoryListing>h2{
 }
 
 /*Loading Screen*/
+/*
 div.zzInterstitialOverlay {
     width: auto;
+    width: 100%;
+    padding: 0PX;
 }
 
 div.zzInterstitialOverlay.default div.row1 {
     display: inline-flex;
+}
+
+div.zzInterstitialOverlay.default div.spinner {
+position: fixed;
+width: 60px;
+height: 60px;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+border: 8px solid #006394;
+border-right-color: transparent;
+border-radius: 50%;
+box-shadow: 0 0 25px 2px #fff;
+animation: spin 1s linear infinite;
+}
+*/
+
+
+div.zzInterstitialOverlay {
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-rows: auto auto;
+}
+
+div.zzInterstitialOverlay.default div.row1 {
+    display: none;
+}
+
+div.zzInterstitialOverlay.default div.row2 {
+    padding: 20px; /* Adjust this value if needed */
+    overflow: hidden;
+    background-color: transparent;
+    text-align: center;
+    margin-bottom: 150px; /* Adjust this value if needed */
+    font-size: 1.8em;
+    color: black;
+}
+
+div.zzInterstitialOverlay.default div.row2 img {
+    float: unset;
+    margin-right: 5%;
+    margin: 30px;
+    width: 60%;
+    max-width: 200px;
+}
+
+div.zzInterstitialOverlay.default div.spinner {
+    width: 60px;
+    height: 60px;
+    border: 8px solid #006394;
+    border-right-color: transparent;
+    border-radius: 50%;
+    box-shadow: 0 0 25px 2px #fff;
+    animation: spin 1s linear infinite;
+    margin-left: unset;
 }
