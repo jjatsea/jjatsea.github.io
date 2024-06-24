@@ -841,6 +841,9 @@ div.zzBookingSummary h2{
 div.caCategoryListing>h2{
     background-color: #001b79;
 }
+div.caCategoryListing div.priceBox.special {
+    background-color: #f3f3f3;
+}
 
 /*Loading Screen*/
 /*
