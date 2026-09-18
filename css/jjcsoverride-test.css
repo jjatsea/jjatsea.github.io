@@ -1200,6 +1200,10 @@ nav#crSearchPanel.lfTopDiv {
 .crCruiseBox {
     flex: 1 1 auto;
     min-width: 0;
+    /* base template sets margin-left:240px to clear a floated ship image —
+       not needed with the flex layout above, and it was pushing content
+       260px right of the image, leaving a large dead gap. */
+    margin-left: 0;
 }
 
 .crCompareLink {
