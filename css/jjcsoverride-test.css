@@ -936,3 +936,429 @@ div.zzSpecialOffer h1 {
 div.zzSpecialOffer h4 {
     color: #001b79;
 }
+
+/* =====================================================================
+   RESULTS PAGE REDESIGN
+   Comprehensive layout pass for CruiseResultPage.aspx — real spacing
+   scale, restyled sidebar as a proper filter panel, results cards
+   rebuilt with clear price/CTA hierarchy. Supersedes the equivalent
+   rules above for this page; kept separate so it's easy to find/revert.
+   ===================================================================== */
+
+/* ---- Page shell ---- */
+#crTopDiv {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+#crMainBody {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    max-width: none;
+    padding: 0;
+}
+
+/* Results summary strip — no longer a leftover colored banner full-width
+   at the top; reads as a section heading inline with the results column. */
+.zzPageTitle {
+    display: block;
+    width: auto;
+    background-color: transparent;
+    color: var(--Brand-Primary);
+    font-size: 22px;
+    font-weight: 900;
+    padding: 28px 0 4px;
+    margin: 0;
+    text-align: left;
+}
+
+.crSCriteria {
+    color: var(--Text-Light);
+    font-size: 13px;
+    margin: 0 0 18px;
+    line-height: 1.5;
+}
+
+/* ---- Sidebar: "Refine Your Search" as a real filter panel ---- */
+nav#crSearchPanel.lfTopDiv {
+    width: 280px;
+    flex: 0 0 280px;
+    margin: 28px 0 0;
+}
+
+.lfTopDiv > form {
+    background-color: #fff;
+    border: 1px solid #e4e8f2;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 1px 8px rgba(0,27,121,0.06);
+}
+
+.lfSelectCriteria {
+    padding: 0;
+}
+
+.lfSelectCriteria h2 {
+    font-size: 13px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--Brand-Primary);
+    margin-bottom: 14px;
+}
+
+.lfSelectCriteria > div {
+    margin-bottom: 10px;
+}
+
+.lfSelectCriteria select,
+.lfTopDiv select.formField {
+    width: 100%;
+    border: 1px solid #d7dceb;
+    border-radius: 8px;
+    padding: 10px 32px 10px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--Text);
+    text-transform: none;
+    background-color: #fff;
+}
+
+.lfSelectCriteria select:focus,
+.lfTopDiv select.formField:focus {
+    outline: none;
+    border-color: var(--Brand-Secondary);
+    box-shadow: 0 0 0 3px rgba(22,64,214,0.1);
+}
+
+.lfDate, .lfDays {
+    width: 48.5%;
+}
+
+.lfBestDealBox {
+    border-top: 1px solid #eef1f8;
+    margin-top: 16px;
+    padding: 16px 0 0;
+}
+
+.lfBestDealBox h2 {
+    font-size: 13px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--Brand-Primary);
+}
+
+.lfPaxOptions h3 {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--Text);
+    margin-bottom: 6px;
+}
+
+.lfChkNRef, .lfResidency {
+    font-size: 13px;
+}
+
+.lfPromoCode label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--Text);
+}
+
+.lfTxtPromoCode {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #d7dceb;
+    border-radius: 8px;
+    padding: 9px 12px;
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+.lfButtonBox {
+    padding: 20px 0 0;
+}
+
+.lfButtonBox button.zwSearchButton,
+.lfButtonBox span.zwSearchButton button {
+    width: 100%;
+    padding: 13px 22px;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+}
+
+.lfButtonBox a {
+    font-size: 12.5px;
+    font-weight: 600;
+}
+
+/* ---- Sort / compare row above the results list ---- */
+.crSortLinks {
+    font-size: 13px;
+    color: var(--Text-Light);
+    margin-bottom: 14px;
+}
+
+.crSortLinks a {
+    color: var(--Brand-Secondary);
+    font-weight: 700;
+}
+
+/* ---- Results list ---- */
+#crCruiseListings {
+    flex: 1 1 auto;
+    min-width: 0;
+    margin: 28px 0 0;
+    max-width: none;
+}
+
+.crCruiseListing {
+    display: block;
+    margin: 0 0 16px;
+    padding: 20px;
+    border: 1px solid #e4e8f2;
+    border-radius: 10px;
+    min-height: 0;
+    background-color: #fff;
+    box-shadow: 0 1px 6px rgba(0,27,121,0.05);
+    transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.crCruiseListing:hover {
+    box-shadow: 0 6px 20px rgba(0,27,121,0.1);
+    border-color: #c9d3ee;
+}
+
+.crCruiseListing.featured {
+    background-color: #fff;
+    border-color: var(--Brand-Accent);
+    box-shadow: 0 1px 6px rgba(237,90,179,0.12);
+}
+
+.crListBox {
+    display: flex;
+    gap: 20px;
+}
+
+.crShipImage {
+    flex: 0 0 220px;
+    width: 220px;
+    float: none;
+    margin: 0;
+    position: relative;
+}
+
+.crShipImage img.ship {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+.crShipImage img.new {
+    border-radius: 8px;
+}
+
+.crShipImage > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+
+.crShipImage img.vlogo {
+    margin-top: 0;
+    max-height: 22px;
+    width: auto;
+}
+
+.crCruiseBox {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.crCompareLink {
+    color: var(--Text-Light);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.crCompareLink a {
+    color: var(--Text-Light);
+}
+
+.crLengthDestination {
+    font-size: 17px;
+    font-weight: 900;
+    color: var(--Brand-Primary);
+    margin: 0 0 2px;
+}
+
+div.crVendorCruise {
+    font-size: 13px;
+    color: var(--Text-Light);
+    margin-bottom: 4px;
+}
+
+div.crVendorCruise span {
+    color: var(--Brand-Secondary);
+    font-weight: 700;
+}
+
+.crPortList {
+    font-size: 13px;
+    color: var(--Text-Light);
+    margin-bottom: 4px;
+}
+
+.crSailingDates {
+    font-size: 12.5px;
+    color: var(--Text-Light);
+    margin: 0 0 14px;
+}
+
+.crSailingDates span.label {
+    font-weight: 700;
+    color: var(--Text);
+}
+
+/* Price panel — three clean stat blocks instead of a gray box-in-a-box */
+div.crPrices {
+    display: flex;
+    margin: 0 0 14px;
+    padding: 14px 0;
+    background-color: transparent;
+    border-top: 1px solid #eef1f8;
+    border-bottom: 1px solid #eef1f8;
+    border-radius: 0;
+    gap: 0;
+}
+
+div.crPrices > div.label {
+    display: none;
+}
+
+div.crPrices div.cabinType {
+    flex: 1 1 0;
+    text-align: left;
+    padding: 0 16px;
+    border-left: 1px solid #eef1f8;
+    font-size: 12.5px;
+}
+
+div.crPrices div.cabinType:first-child {
+    padding-left: 0;
+    border-left: none;
+}
+
+div.crPrices div.cabinType > div.label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--Text-Light);
+    margin-bottom: 4px;
+}
+
+div.crPrices div.price {
+    color: var(--Brand-Primary);
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 1.2;
+}
+
+div.crPrices div.perDay {
+    font-size: 11px;
+    color: var(--Text-Light);
+    margin-top: 2px;
+}
+
+div.crPrices #up-pay-monthly-selector {
+    font-size: 11px;
+    color: var(--Text-Light);
+    margin-top: 4px;
+}
+
+/* Bonus offers — de-emphasized so price/CTA lead, button pinned to the
+   top-right of this block instead of floating oddly beside a bullet list */
+div.crBonusOffers {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+div.crBonusOffers button.zzSelectButton {
+    order: -1;
+    align-self: flex-end;
+    margin-left: auto;
+    padding: 11px 28px;
+    font-size: 14px;
+}
+
+div.crBonusOffers h4 {
+    color: var(--Text-Light);
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin: 0;
+}
+
+div.crBonusOffers ul {
+    padding-left: 16px;
+    color: var(--Text-Light);
+    font-size: 12.5px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+div.crBonusOffers ul li b {
+    color: var(--Text);
+}
+
+/* ---- Pagination ---- */
+div.crPaging {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+    margin: 4px 0 18px;
+    font-size: 13px;
+}
+
+div.crPaging a {
+    padding: 6px 4px;
+    color: var(--Brand-Secondary);
+    font-weight: 700;
+}
+
+@media only screen and (max-width: 900px) {
+    #crMainBody {
+        flex-direction: column;
+    }
+    nav#crSearchPanel.lfTopDiv {
+        width: 100%;
+        flex: 1 1 auto;
+    }
+    .crListBox {
+        flex-direction: column;
+    }
+    .crShipImage {
+        width: 100%;
+        flex: 1 1 auto;
+    }
+    div.crPrices {
+        flex-wrap: wrap;
+    }
+    div.crPrices div.cabinType {
+        flex: 1 1 33%;
+    }
+}
