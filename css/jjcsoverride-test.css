@@ -1161,7 +1161,7 @@ nav#crSearchPanel.lfTopDiv {
 
 .crListBox {
     display: flex;
-    align-items: stretch;
+    align-items: flex-start;
     gap: 20px;
 }
 
@@ -1328,39 +1328,46 @@ div.crPrices #up-pay-monthly-selector {
     margin-top: 4px;
 }
 
-/* Bonus offers — de-emphasized so price/CTA lead, button pinned to the
-   top-right of this block instead of floating oddly beside a bullet list */
+/* Bonus offers + Select button as one row: offers (compact, capped
+   height) on the left, button on the right — keeps this section from
+   growing into a tall bullet list that unbalances the card against the
+   shorter ship-photo column. */
 div.crBonusOffers {
     margin: 0;
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
     align-items: flex-start;
-    gap: 10px;
+    gap: 20px;
 }
 
 div.crBonusOffers button.zzSelectButton {
-    order: -1;
-    align-self: flex-end;
-    margin-left: auto;
+    flex: 0 0 auto;
     padding: 11px 28px;
     font-size: 14px;
+    white-space: nowrap;
 }
 
+/* "Bonus Offers" heading dropped — the list is self-explanatory and
+   the label was just adding another row of height to this section. */
 div.crBonusOffers h4 {
-    color: var(--Text-Light);
-    font-weight: 700;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    margin: 0;
+    display: none;
 }
 
+/* Cap to 2 visible offers so this list can't grow taller than the
+   price panel above it; still linked through to full details via the
+   card's own "Select" flow, this is a result-card teaser, not the
+   full offer list. */
 div.crBonusOffers ul {
+    flex: 1 1 auto;
     padding-left: 16px;
     color: var(--Text-Light);
     font-size: 12.5px;
     line-height: 1.6;
     margin: 0;
+}
+
+div.crBonusOffers ul li:nth-child(n+3) {
+    display: none;
 }
 
 div.crBonusOffers ul li b {
