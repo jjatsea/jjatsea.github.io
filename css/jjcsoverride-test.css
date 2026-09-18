@@ -49,14 +49,21 @@
      display:block;
      font-family: avenir;
 }
+/* CB's base template sets font on .zzTopDiv (the page wrapper OUTSIDE <main>)
+   as "normal 12px Verdana..." — that cascades into <main> too and wins on
+   font-size since main{} above only touches font-family. Override the
+   wrapper directly so both family and size are consistent site-wide. */
+.zzTopDiv {
+    font-family: 'Avenir', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 13px;
+}
  a{
-     /* color:#337ab7; */
-     /* text-decoration:underline; */
-     /* cursor:pointer; */
-     /* display: none; */
+     color: var(--Brand-Secondary);
+     text-decoration: none;
 }
  a:hover{
-     color: var(--Brand-Secondary);
+     color: var(--Brand-Primary);
+     text-decoration: underline;
 }
  h1,h2,h3{
      color: var(--Brand-Primary);
@@ -481,6 +488,10 @@ div.crPrices{
     margin-bottom: 15px;
     border-radius: 6px;
     align-items: center;
+}
+
+div.crPrices div.price{
+    color: var(--Brand-Primary);
 }
 
 div.crPrices>div.label{
