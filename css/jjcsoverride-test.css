@@ -945,27 +945,28 @@ div.zzSpecialOffer h4 {
    rules above for this page; kept separate so it's easy to find/revert.
    ===================================================================== */
 
-/* ---- Page shell ---- */
+/* ---- Page shell -----------------------------------------------------
+   Real DOM (verified via live inspection, not assumed):
+   #crTopDiv > header.zzPageHeader(hidden), .zzPageTitle,
+              nav#crSearchPanel.lfTopDiv, main#crMainBody, footer
+   #crMainBody > header#crHeader2(.crSCriteria, .crPaging, .crSortLinks),
+                 section#crCruiseListings, div.crPaging (2nd, bottom)
+   The sidebar is a SIBLING of #crMainBody under #crTopDiv, not nested
+   inside it — #crTopDiv is the flex row, #crMainBody stacks vertically. */
 #crTopDiv {
     max-width: 1140px;
     margin: 0 auto;
     padding: 0 20px;
     box-sizing: border-box;
-}
-
-#crMainBody {
     display: flex;
+    flex-wrap: wrap;
     align-items: flex-start;
-    gap: 28px;
-    max-width: none;
-    padding: 0;
 }
 
-/* Results summary strip — no longer a leftover colored banner full-width
-   at the top; reads as a section heading inline with the results column. */
 .zzPageTitle {
     display: block;
-    width: auto;
+    width: 100%;
+    flex: 1 0 100%;
     background-color: transparent;
     color: var(--Brand-Primary);
     font-size: 22px;
@@ -975,11 +976,32 @@ div.zzSpecialOffer h4 {
     text-align: left;
 }
 
+#crMainBody {
+    display: block;
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: none;
+    padding: 0;
+    margin: 28px 0 0 28px;
+}
+
+#crHeader2 {
+    display: block;
+}
+
 .crSCriteria {
     color: var(--Text-Light);
     font-size: 13px;
-    margin: 0 0 18px;
+    margin: 0 0 10px;
     line-height: 1.5;
+    font-weight: 400;
+}
+
+/* Top pagination (inside #crHeader2) — keep compact, sort links sit
+   below it on their own line. */
+#crHeader2 > div.crPaging {
+    display: inline-flex;
+    margin: 0 0 14px;
 }
 
 /* ---- Sidebar: "Refine Your Search" as a real filter panel ---- */
@@ -1110,9 +1132,7 @@ nav#crSearchPanel.lfTopDiv {
 
 /* ---- Results list ---- */
 #crCruiseListings {
-    flex: 1 1 auto;
-    min-width: 0;
-    margin: 28px 0 0;
+    display: block;
     max-width: none;
 }
 
