@@ -1154,19 +1154,25 @@ nav#crSearchPanel.lfTopDiv {
 }
 
 .crCruiseListing.featured {
-    background-color: #fff;
-    border-color: var(--Brand-Accent);
-    box-shadow: 0 1px 6px rgba(237,90,179,0.12);
+    background-color: #fffdf7;
+    border-color: #f6d9ea;
+    box-shadow: 0 1px 6px rgba(237,90,179,0.08);
 }
 
 .crListBox {
     display: flex;
+    align-items: stretch;
     gap: 20px;
 }
 
+/* Ship image column no longer stretches to match the text column's
+   height (that left ~225px of dead space below a small thumbnail) —
+   photo has a fixed, generous height instead, with the vendor logo row
+   directly beneath it. A fixed height (not flex-grow) is required here
+   so the featured-ribbon overlay below can match it exactly. */
 .crShipImage {
-    flex: 0 0 220px;
-    width: 220px;
+    flex: 0 0 240px;
+    width: 240px;
     float: none;
     margin: 0;
     position: relative;
@@ -1174,26 +1180,39 @@ nav#crSearchPanel.lfTopDiv {
 
 .crShipImage img.ship {
     width: 100%;
-    aspect-ratio: 4 / 3;
+    height: 220px;
     object-fit: cover;
     border-radius: 8px;
     display: block;
 }
 
+/* Base CSS overlays this "Featured Cruise" ribbon on the ship photo via
+   margin-left:-100% (relies on block/static flow) — .crShipImage is
+   position:relative and img.ship is the first, top-aligned element, so
+   an absolutely-positioned overlay matching its exact height lines up
+   correctly without needing a wrapper element. */
 .crShipImage img.new {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 220px;
+    margin-left: 0;
     border-radius: 8px;
+    object-fit: cover;
+    pointer-events: none;
 }
 
 .crShipImage > div {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 8px;
+    margin-top: 10px;
 }
 
 .crShipImage img.vlogo {
     margin-top: 0;
-    max-height: 22px;
+    max-height: 24px;
     width: auto;
 }
 
