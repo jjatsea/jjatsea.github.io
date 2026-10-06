@@ -932,3 +932,168 @@ div.zzSpecialOffer h1 {
 div.zzSpecialOffer h4 {
     color: #001b79;
 }
+
+/* ----- Hot Deals Widget (HotDeals.aspx) ----- */
+/* Embedded via iframe in the Featured Deals section on the jjatsea.com homepage.
+   Styled to match the site's deal cards (public/css/styles.css .featured-deal-card). */
+
+html:has(#hdwTopDiv),
+body:has(#hdwTopDiv) {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+}
+
+#hdwTopDiv {
+    /* Hides the bare "Hot deals are not available" text node; children restore it */
+    font-size: 0;
+    font-family: 'Avenir', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: rgba(35,37,54,1.00);
+    background: transparent;
+    padding: 4px 4px 8px;
+    -webkit-font-smoothing: antialiased;
+}
+
+#hdwTopDiv > * {
+    font-size: 16px;
+}
+
+#hdwTopDiv:not(:has(div.hdwListing))::before {
+    content: "New deals are on the way. Use the search above to browse every sailing.";
+    display: block;
+    padding: 24px;
+    font-size: 16px;
+    text-align: center;
+    color: rgba(109,110,118,1.00);
+}
+
+#hdwHeader {
+    display: none;
+}
+
+#hdwTopDiv div.hdwListing {
+    position: relative;
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "logo info price"
+        "logo info cabin";
+    align-items: center;
+    column-gap: 20px;
+    row-gap: 2px;
+    margin: 0 0 12px;
+    padding: 16px 20px;
+    overflow: visible;
+    background: #ffffff;
+    border: 1px solid rgba(109,110,118,0.30);
+    border-radius: 8px;
+    transition: all 0.2s linear;
+}
+
+#hdwTopDiv div.hdwListing:hover {
+    box-shadow: 0 6px 24px rgba(0,27,121,0.10);
+    transform: translateY(-2px);
+}
+
+#hdwTopDiv div.hdwListing img.vendor {
+    grid-area: logo;
+    float: none;
+    width: 80px;
+    height: auto;
+}
+
+#hdwTopDiv div.hdwListing > div {
+    grid-area: info;
+    min-width: 0;
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: rgba(109,110,118,1.00);
+}
+
+#hdwTopDiv div.hdwListing span.dealDesc {
+    display: none;
+}
+
+#hdwTopDiv div.hdwListing a {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: rgba(35,37,54,1.00);
+    text-decoration: none;
+}
+
+/* Stretch the link over the whole card so the entire row is clickable */
+#hdwTopDiv div.hdwListing a::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+}
+
+#hdwTopDiv div.hdwListing:hover a {
+    color: #1640d6;
+}
+
+#hdwTopDiv div.hdwListing a:focus-visible {
+    outline: none;
+}
+
+#hdwTopDiv div.hdwListing a:focus-visible::after {
+    outline: 2px solid #1640d6;
+    outline-offset: 2px;
+}
+
+#hdwTopDiv div.hdwListing span.date {
+    white-space: nowrap;
+}
+
+#hdwTopDiv div.hdwListing span.price {
+    grid-area: price;
+    float: none;
+    margin: 0;
+    justify-self: end;
+    align-self: end;
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #001b79;
+    white-space: nowrap;
+}
+
+#hdwTopDiv div.hdwListing span.price::before {
+    content: "From ";
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: rgba(109,110,118,1.00);
+}
+
+#hdwTopDiv div.hdwListing span.cabinType {
+    grid-area: cabin;
+    float: none;
+    margin: 0;
+    justify-self: end;
+    align-self: start;
+    font-size: 0.75rem;
+    color: rgba(109,110,118,1.00);
+    white-space: nowrap;
+}
+
+#hdwTopDiv div.hdwListing span.cabinType::after {
+    content: " \00B7  per person";
+}
+
+@media (max-width: 520px) {
+    #hdwTopDiv div.hdwListing {
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+            "logo price"
+            "logo cabin"
+            "info info";
+        padding: 14px 16px;
+    }
+
+    #hdwTopDiv div.hdwListing > div {
+        margin-top: 10px;
+    }
+}
